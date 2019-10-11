@@ -1,0 +1,10 @@
+{
+  id: user.id,
+  email: user.email,
+  first_name: user.first_name,
+  last_name: user.last_name,
+  age: user.age,
+  bio: user.bio,
+  zipcode: user.zipcode,
+  image: user.image
+}
