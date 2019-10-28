@@ -1,0 +1,7 @@
+group = render partial: "group.json.jb", locals: { group: @group}
+
+group[:users] = @group.users.map do |user|
+  render partial: "api/users/user", locals: {user: user}
+end
+
+group

@@ -6,5 +6,5 @@
   age: user.age,
   bio: user.bio,
   zipcode: user.zipcode,
-  image: user.image
+  image: user.image,
 }

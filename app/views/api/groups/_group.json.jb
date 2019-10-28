@@ -1,0 +1,7 @@
+{
+  id: group.id,
+  name: group.name,
+  description: group.description,
+  zipcode: group.zipcode,
+  image: group.image
+}

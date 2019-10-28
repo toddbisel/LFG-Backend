@@ -12,5 +12,24 @@ Rails.application.routes.draw do
     patch "/users/:id" => "users#update"
     delete "/users/:id" => "users#destroy"
 
+    get "/groups" => "groups#index"
+    post "/groups" => "groups#create"
+    get "/groups/:id" => "groups#show"
+    patch "/groups/:id" => "groups#update"
+    delete "/groups/:id" => "groups#destroy"
+
+    post "/user_groups" => "user_groups#create"
+    delete "/user_groups/:id" => "user_groups#destroy"
+
+    get "/games" => "games#index"
+    get "/games/:id" => "games#show"
+
+    post "/user_games" => "user_games#create"
+    delete "/user_games/:id" => "user_games#destroy"
+
+
+
+
   end
+  
 end
