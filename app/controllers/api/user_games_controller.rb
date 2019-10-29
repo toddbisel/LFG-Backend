@@ -14,9 +14,13 @@ class Api::UserGamesController < ApplicationController
   end
 
   def destroy
-    user = User.find_by(id: params[:id])
-    user.destroy
+    @user_game = UserGame.find_by(user_id: params[:user_id], game_id: params[:game_id])
 
-    render json: {message: "User deleted!"}  
+    if @user_game.save
+      @user_game.destroy
+      render json: {message: "User-Game deleted!"} 
+      else
+        render json: {errors: @user_game.errors.full_messages}, status: :bad_request
+    end 
   end
 end

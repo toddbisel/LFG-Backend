@@ -4,4 +4,8 @@ user[:groups] = @user.groups.map do |group|
   render partial: "api/groups/group", locals: {group: group}
 end
 
+user[:games] = @user.games.map do |game|
+  render partial: "api/games/game", locals: {game: game}
+end
+
 user

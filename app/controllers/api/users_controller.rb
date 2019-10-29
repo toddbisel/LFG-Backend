@@ -6,6 +6,7 @@ class Api::UsersController < ApplicationController
   end
 
   def create
+
     @user = User.new(
       email: params[:email],
       password: params[:password],
@@ -21,7 +22,7 @@ class Api::UsersController < ApplicationController
     if @user.save
       render 'show.json.jb'
     else
-      render json: {errors: user.errors.full_messages}, status: :bad_request
+      render json: {errors: @user.errors.full_messages}, status: :bad_request
     end
   end
 

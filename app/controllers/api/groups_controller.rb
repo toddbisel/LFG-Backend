@@ -6,18 +6,17 @@ class Api::GroupsController < ApplicationController
   end
 
   def create
-    group = Group.new(
+    @group = Group.new(
       name: params[:name],
       description: params[:description],
       zipcode: params[:zipcode],
       image: params[:image]
-      
     )
 
-    if group.save
-      render json: {message: 'Group created successfully'}, status: :created
+    if @group.save
+      render 'show.json.jb'
     else
-      render json: {errors: group.errors.full_messages}, status: :bad_request
+      render json: {errors: @group.errors.full_messages}, status: :bad_request
     end
   end
 

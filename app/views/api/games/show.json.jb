@@ -1,1 +1,11 @@
 game = render partial: "game.json.jb", locals: { game: @game}
+
+game[:users] = @game.users.map do |user|
+  render partial: "api/users/user", locals: {user: user}
+end
+
+game[:groups] = @game.groups.map do |group|
+  render partial: "api/groups/group", locals: {group: group}
+end
+
+game

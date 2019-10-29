@@ -14,10 +14,11 @@ class Api::UserGroupsController < ApplicationController
   end
 
   def destroy
-    user = User.find_by(id: params[:id])
-    user.destroy
+    user_group = UserGroup.find_by(id: params[:id])
 
-    render json: {message: "User deleted!"}  
+    user_group.destroy
+      
+    render json: {message: "User-Group deleted!"}
   end
 
 end
