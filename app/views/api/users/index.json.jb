@@ -1,3 +1,5 @@
 @users.map do |user|
-  render partial: "user.json.jb", locals: { user: user}
+  u = render partial: "user.json.jb", locals: { user: user}
+  u[:distance] = user.distance_from([current_user.latitude, current_user.longitude])
+  u
 end
