@@ -25,4 +25,8 @@ class User < ApplicationRecord
     Group.near([latitude,longitude], 30)
   end
 
+  def nearby_users
+    User.near([latitude,longitude], 30)
+  end
+
 end

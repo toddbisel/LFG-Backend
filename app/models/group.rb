@@ -15,4 +15,13 @@ class Group < ApplicationRecord
 
   geocoded_by :zipcode
   after_validation :geocode
+
+
+  def nearby_groups
+    Group.near([latitude,longitude], 30000)
+  end
+
+  def nearby_users
+    User.near([latitude,longitude], 3000000)
+  end
 end

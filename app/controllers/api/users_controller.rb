@@ -42,8 +42,9 @@ class Api::UsersController < ApplicationController
     @user.zipcode = params[:zipcode] || @user.zipcode
     @user.image = params[:image] || @user.image
 
-    
-    @user.password = params[:password] || @user.password_digest
+    if params[:password]
+      @user.password = params[:password]
+    end
 
     if @user.save
       render 'show.json.jb'

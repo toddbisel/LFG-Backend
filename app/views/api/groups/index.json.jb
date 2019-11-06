@@ -3,3 +3,5 @@
   g[:distance] = group.distance_from([current_user.latitude, current_user.longitude])
   g
 end
+
+
