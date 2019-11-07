@@ -45,7 +45,7 @@ class Api::UsersController < ApplicationController
     if params[:password]
       @user.password = params[:password]
     end
-
+ 
     if @user.save
       render 'show.json.jb'
     else
