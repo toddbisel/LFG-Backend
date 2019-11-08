@@ -8,4 +8,8 @@ group[:games] = @group.games.map do |game|
   render partial: "api/games/game", locals: {game: game}
 end
 
+if current_user
+  group[:member] = @group.users.include?(current_user)
+end
+
 group

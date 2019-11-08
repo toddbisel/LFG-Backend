@@ -14,6 +14,10 @@ class Api::GroupsController < ApplicationController
     )
 
     if @group.save
+      UserGroup.create(
+        user_id: current_user.id,
+        group_id: @group.id
+        )
       render 'show.json.jb'
     else
       render json: {errors: @group.errors.full_messages}, status: :bad_request

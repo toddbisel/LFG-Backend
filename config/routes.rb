@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     delete "/groups/:id" => "groups#destroy"
 
     post "/user_groups" => "user_groups#create"
-    delete "/user_groups/:id" => "user_groups#destroy"
+    delete "/user_groups/:group_id" => "user_groups#destroy"
 
     get "/games" => "games#index"
     get "/games/:id" => "games#show"
@@ -27,8 +27,8 @@ Rails.application.routes.draw do
     post "/user_games" => "user_games#create"
     delete "/user_games/:id" => "user_games#destroy"
 
-    post "/user_groups" => "user_groups#create"
-    delete "/user_groups/:id" => "user_groups#destroy"
+    # post "/user_groups" => "user_groups#create"
+    # delete "/user_groups/:id" => "user_groups#destroy"
 
     post "/group_games" => "group_games#create"
     delete "/group_games/:id" => "group_games#destroy"
