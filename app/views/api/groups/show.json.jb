@@ -8,6 +8,8 @@ group[:games] = @group.games.map do |game|
   render partial: "api/games/game", locals: {game: game}
 end
 
+group[:distance] = @group.distance_from([current_user.latitude, current_user.longitude])
+
 if current_user
   group[:member] = @group.users.include?(current_user)
 end

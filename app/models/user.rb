@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :user_games
   has_many :games, through: :user_games
+
+  has_many :messages, dependent: :destroy
   
   validates :email, presence: true, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
   
@@ -28,5 +30,11 @@ class User < ApplicationRecord
   def nearby_users
     User.near([latitude,longitude], 30)
   end
+
+  def conversations
+    Conversation.where("sender_id = ? OR recipient_id = ?", id,id)
+  end
+  
+  
 
 end

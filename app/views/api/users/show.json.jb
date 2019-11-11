@@ -8,4 +8,6 @@ user[:games] = @user.games.map do |game|
   render partial: "api/games/game", locals: {game: game}
 end
 
+user[:distance] = @user.distance_from([current_user.latitude, current_user.longitude])
+
 user

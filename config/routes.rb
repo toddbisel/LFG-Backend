@@ -33,6 +33,16 @@ Rails.application.routes.draw do
     post "/group_games" => "group_games#create"
     delete "/group_games/:id" => "group_games#destroy"
 
+    post "/messages" => "messages#create"
+    get "/messages" => "messages#index"
+
+    post "/conversations" => "conversations#create"
+    get "/conversations" => "conversations#index"
+    get "/conversations/:id" => "conversations#show"
+   
+
+
+
   end
   
 end
