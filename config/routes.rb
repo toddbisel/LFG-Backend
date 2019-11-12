@@ -25,13 +25,13 @@ Rails.application.routes.draw do
     get "/games/:id" => "games#show"
 
     post "/user_games" => "user_games#create"
-    delete "/user_games/:id" => "user_games#destroy"
+    delete "/user_games/:game_id" => "user_games#destroy"
 
     # post "/user_groups" => "user_groups#create"
     # delete "/user_groups/:id" => "user_groups#destroy"
 
     post "/group_games" => "group_games#create"
-    delete "/group_games/:id" => "group_games#destroy"
+    delete "/group_games/:game_id" => "group_games#destroy"
 
     post "/messages" => "messages#create"
     get "/messages" => "messages#index"

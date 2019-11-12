@@ -60,5 +60,5 @@ class Api::UsersController < ApplicationController
     render json: {message: "User deleted!"}
     
   end
-  
+
 end

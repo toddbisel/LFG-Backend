@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  # attr_accessor :first_name, :last_name
+
   has_secure_password
   
   has_many :user_groups
@@ -34,6 +36,10 @@ class User < ApplicationRecord
   def conversations
     Conversation.where("sender_id = ? OR recipient_id = ?", id,id)
   end
+
+  # def name
+  #   [@first_name,@last_name].reject(&:blank?).join(' ').titleize
+  # end
   
   
 

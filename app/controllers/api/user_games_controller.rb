@@ -2,7 +2,7 @@ class Api::UserGamesController < ApplicationController
 
   def create
     @user_game = UserGame.new(
-      user_id: params[:user_id],
+      user_id: current_user.id,
       game_id: params[:game_id],
     )
 
@@ -14,13 +14,14 @@ class Api::UserGamesController < ApplicationController
   end
 
   def destroy
-    @user_game = UserGame.find_by(user_id: params[:user_id], game_id: params[:game_id])
+    user_game = UserGame.find_by(
+      game_id: params[:game_id],
+      user_id: current_user.id
+    )
 
-    if @user_game.save
-      @user_game.destroy
-      render json: {message: "User-Game deleted!"} 
-      else
-        render json: {errors: @user_game.errors.full_messages}, status: :bad_request
-    end 
+    user_game.destroy
+      
+    render 'show.json.jb'
   end
+
 end

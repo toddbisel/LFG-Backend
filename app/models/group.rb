@@ -24,4 +24,8 @@ class Group < ApplicationRecord
   def nearby_users
     User.near([latitude,longitude], 3000000)
   end
+
+  # def members
+  #   User.user_groups.include?(current_user)
+  # end
 end

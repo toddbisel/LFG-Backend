@@ -11,6 +11,7 @@ class Api::GroupsController < ApplicationController
       description: params[:description],
       zipcode: params[:zipcode],
       image: params[:image]
+
     )
 
     if @group.save
@@ -18,6 +19,12 @@ class Api::GroupsController < ApplicationController
         user_id: current_user.id,
         group_id: @group.id
         )
+
+      params[:game_ids].each do |game_id|
+        GroupGame.create(
+          group_id: @group.id,
+          game_id: game_id)
+      end
       render 'show.json.jb'
     else
       render json: {errors: @group.errors.full_messages}, status: :bad_request
@@ -39,6 +46,12 @@ class Api::GroupsController < ApplicationController
     
 
     if @group.save
+      @group.group_games.destroy_all
+      params[:game_ids].each do |game_id|
+        GroupGame.create(
+          group_id: @group.id,
+          game_id: game_id)
+      end
       render 'show.json.jb'
     else
       render json: {errors: @group.errors.full_messages}, status: :bad_request

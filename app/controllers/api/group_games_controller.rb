@@ -14,13 +14,14 @@ class Api::GroupGamesController < ApplicationController
   end
 
   def destroy
-    @group_game = GroupGame.find_by(group_id: params[:group_id], game_id: params[:game_id])
+    group_game = GroupGame.find_by(
+      game_id: params[:game_id],
+      group_id: params[:group_id]
+    )
 
-    if @group_game.save
-      @group_game.destroy
-      render json: {message: "Group-Game deleted!"} 
-      else
-        render json: {errors: @group_game.errors.full_messages}, status: :bad_request
-    end 
+    group_game.destroy
+      
+    render 'show.json.jb'
   end
+
 end
