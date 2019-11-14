@@ -4,5 +4,6 @@
   body: message.body,
   conversation_id:message.conversation_id,
   created_at: message.created_at,
-  image: message.image
+  image: message.image,
+  
 }  

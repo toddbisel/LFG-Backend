@@ -2,5 +2,6 @@
   id: conversation.id,
   sender_id: conversation.sender_id,
   recipient_id: conversation.recipient_id,
-  created_at: conversation.created_at
+  created_at: conversation.created_at,
+  length: conversation.messages.length
 }

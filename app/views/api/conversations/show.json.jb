@@ -5,6 +5,5 @@ conversation[:messages] = @conversation.messages.order(:created_at => :desc).map
   m[:user_id] = message.user_id
   m[:first_name] = message.user.first_name
   m[:image] = message.user.image
-  m 
 end 
 conversation  

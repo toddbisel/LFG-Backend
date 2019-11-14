@@ -5,5 +5,6 @@
   else 
     c[:user] = render partial: "api/users/user", locals: {user: conversation.sender}
   end  
+  c[:length] = conversation.messages.length
   c
 end   
