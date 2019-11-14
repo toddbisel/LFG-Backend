@@ -1,6 +1,7 @@
 @groups.map do |group|
   g = render partial: "group.json.jb", locals: { group: group}
   g[:distance] = group.distance_from([current_user.latitude, current_user.longitude])
+  g[:count] = group.users.length
   g
 end
 
