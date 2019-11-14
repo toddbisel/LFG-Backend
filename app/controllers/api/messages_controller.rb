@@ -13,7 +13,8 @@ class Api::MessagesController < ApplicationController
         first_name: @message.user.first_name,
         body: @message.body,
         conversation_id: @message.conversation_id,
-        created_at: @message.created_at.strftime("%b %e, %l:%M %p")
+        created_at: @message.created_at.strftime("%b %e, %l:%M %p"),
+        image: @message.user.image
       }
 
       render 'show.json.jb'

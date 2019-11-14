@@ -1,9 +1,10 @@
 conversation = render partial: "conversation.json.jb", locals: { conversation: @conversation }
 
-conversation[:messages] = @conversation.messages.map do |message|
+conversation[:messages] = @conversation.messages.order(:created_at => :desc).map do |message|
   m = render partial: "api/messages/message", locals: {message: message}
   m[:user_id] = message.user_id
-  m[:user_name] = message.user.first_name
+  m[:first_name] = message.user.first_name
+  m[:image] = message.user.image
   m 
 end 
 conversation  
